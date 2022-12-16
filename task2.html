@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab5. Task2. Oleksandr Popov. IT-z01</title>
+    <link href="style2.css" type="text/css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.2.slim.min.js"
+            integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0=" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="container">
+    <div id="color-picker">
+        <label for="colorWell">Color:</label>
+        <input type="color" value="#ffa500" id="colorWell"/>
+    </div>
+    <table class="tg" id="table">
+        <tbody>
+        <tr>
+            <td class="tg-wk8g">1</td>
+            <td class="tg-wk8g">2</td>
+            <td class="tg-wk8g">3</td>
+            <td class="tg-wk8g">4</td>
+            <td class="tg-wk8g">5</td>
+            <td class="tg-wk8g">6</td>
+        </tr>
+        <tr>
+            <td class="tg-wk8g">7</td>
+            <td class="tg-wk8g">8</td>
+            <td class="tg-wk8g">9</td>
+            <td class="tg-wk8g">10</td>
+            <td class="tg-wk8g">11</td>
+            <td class="tg-wk8g">12</td>
+        </tr>
+        <tr>
+            <td class="tg-wk8g">13</td>
+            <td class="tg-wk8g">14</td>
+            <td class="tg-wk8g">15</td>
+            <td class="tg-wk8g">16</td>
+            <td class="tg-wk8g">17</td>
+            <td class="tg-wk8g">18</td>
+        </tr>
+        <tr>
+            <td class="tg-wk8g">19</td>
+            <td class="tg-wk8g">20</td>
+            <td class="tg-wk8g">21</td>
+            <td class="tg-wk8g">22</td>
+            <td class="tg-wk8g">23</td>
+            <td class="tg-wk8g">24</td>
+        </tr>
+        <tr>
+            <td class="tg-wk8g">25</td>
+            <td class="tg-wk8g">26</td>
+            <td class="tg-wk8g">27</td>
+            <td class="tg-wk8g">28</td>
+            <td class="tg-wk8g">29</td>
+            <td class="tg-wk8g">30</td>
+        </tr>
+        <tr>
+            <td class="tg-wk8g">31</td>
+            <td class="tg-wk8g">32</td>
+            <td class="tg-wk8g">33</td>
+            <td class="tg-wk8g">34</td>
+            <td class="tg-wk8g">35</td>
+            <td class="tg-wk8g">36</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        const table = $('#table')
+        const colorWell = $('#colorWell')
+
+        const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
+
+        const defaultColor = '#' + genRanHex(6)
+
+        function updateFirst(event) {
+            const p = $('p');
+            if (p) {
+                p.css('color', event.target.value)
+            }
+        }
+
+        function updateAll(event) {
+            $('p').css('color', event.target.value)
+        }
+
+        colorWell.value = defaultColor
+        colorWell.bind('input', updateFirst)
+        colorWell.bind('input', updateFirst)
+        colorWell.bind('change', updateAll)
+        colorWell.select();
+
+        $(table.find('td').get(1)).hover(function () {
+            $(this).css('background-color', '#' + genRanHex(6))
+        })
+
+        $(table.find('td').get(1)).click(function () {
+            $(this).css('background-color', colorWell.val())
+        })
+
+        $(table.find('td').get(1)).dblclick(function () {
+            table.find('tr').each(function () {
+                $($(this).find('td').get(1)).css('background-color', colorWell.val())
+            })
+        })
+    })
+</script>
+</body>
+</html>

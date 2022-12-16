@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab5. Task1. Oleksandr Popov. IT-z01</title>
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.2.slim.min.js"
+            integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0=" crossorigin="anonymous"></script>
+    <script src="script.js" type="application/javascript" rel="script"></script>
+</head>
+<body>
+<div class="container">
+    <form id="contact" action="your-data.html" method="get">
+        <h3>My Form</h3>
+        <fieldset>
+            <label for="name"></label><input placeholder="Your Full Name" name="name" id="name" type="text" tabindex="1"
+                                             required autofocus>
+        </fieldset>
+        <fieldset>
+            <label for="group"></label><input placeholder="Your Group" name="group" id="group" type="text" tabindex="2"
+                                              required>
+        </fieldset>
+        <fieldset>
+            <label for="tel"></label><input placeholder="Your Phone Number" name="tel" id="tel" type="text" tabindex="3"
+                                            required>
+        </fieldset>
+        <fieldset>
+            <label for="id"></label><input placeholder="Your ID" name="id" id="id" type="text" tabindex="4" required>
+        </fieldset>
+        <fieldset>
+            <label for="faculty"></label><input placeholder="Your Faculty" name="faculty" id="faculty" type="text"
+                                                tabindex="5" required>
+        </fieldset>
+        <fieldset>
+            <button name="submit" type="submit" id="submit-button" onClick="return validateForm(this.form)"
+                    data-submit="...Sending">Submit
+            </button>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+    <style>
+        #info {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid black;
+            padding: 10px;
+            width: fit-content;
+        }
+
+        #info p {
+            font-weight: bold;
+        }
+
+        #info p span{
+            font-weight: normal;
+            margin: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.2.slim.min.js"
+            integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            $('#name').text(getParameter('name'))
+            $('#group').text(getParameter('group'))
+            $('#tel').text(getParameter('tel'))
+            $('#id').text(getParameter('id'))
+            $('#faculty').text(getParameter('faculty'))
+        })
+
+        getParameter = (key) => {
+            // Address of the current window
+            let address = window.location.search
+
+            // Returns a URLSearchParams object instance
+            let parameterList = new URLSearchParams(address)
+
+            // Returning the respected value associated
+            // with the provided key
+            return parameterList.get(key)
+        }
+    </script>
+</head>
+<body>
+<h2>Congratulations!</h2>
+<p>The information that you entered in the previous form has been successfully validated and now you
+    can see it below.</p>
+
+<div id="info">
+    <p>Full Name: <span id="name"></span></p>
+    <p>Group: <span id="group"></span></p>
+    <p>Phone: <span id="tel"></span></p>
+    <p>ID: <span id="id"></span></p>
+    <p>Faculty: <span id="faculty"></span></p>
+</div>
+</body>
+</html>

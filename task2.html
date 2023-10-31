@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lab5. Task2. Oleksandr Popov. IT-z01</title>
+    <title>Lab2. Task2. Oleksandr Popov. IT-z01</title>
     <link href="task2.css" type="text/css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.2.slim.min.js"
             integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0=" crossorigin="anonymous"></script>
@@ -12,17 +12,19 @@
 
             const genRanHex = size => [...Array(size)].map(() => Math.floor(Math.random() * 16).toString(16)).join('');
 
-            $(table.find('td').get(1)).hover(function () {
+            $(table.find('td').get(3)).hover(function () {
                 $(this).css('background-color', '#' + genRanHex(6))
             })
 
-            $(table.find('td').get(1)).click(function () {
+            $(table.find('td').get(3)).click(function () {
                 $(this).css('background-color', $('#color-well').val())
             })
 
-            $(table.find('td').get(1)).dblclick(function () {
+            $(table.find('td').get(3)).dblclick(function () {
+                let i = 5
                 table.find('tr').each(function () {
-                    $($(this).find('td').get(1)).css('background-color', $('#color-well').val())
+                    $($(this).find('td').get(i)).css('background-color', $('#color-well').val())
+                    i--
                 })
             })
         })

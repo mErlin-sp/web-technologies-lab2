@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lab5. Task1. Oleksandr Popov. IT-z01</title>
+    <title>Lab2. Task1. Oleksandr Popov. IT-z01</title>
     <link href="task1.css" type="text/css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.2.slim.min.js"
             integrity="sha256-E3P3OaTZH+HlEM7f1gdAT3lHAn4nWBZXuYe89DFg2d0=" crossorigin="anonymous"></script>
@@ -20,7 +20,7 @@
         function validateForm(data) {
             let fail = false
 
-            const nameRegEx = /^\w{1,6}\s\w[.]\w[.]$/g
+            const nameRegEx = /^\w{1,6}\s\w[.]\w[.]$/
             if (!nameRegEx.test(data.name.value)) {
                 fail = true
                 $('#name').addClass('wrong')
@@ -28,25 +28,7 @@
                 $('#name').removeClass('wrong')
             }
 
-            const groupRegEx = /^[a-zA-Z][a-zA-Z][-]\d\d$/g;
-            if (!groupRegEx.test(data.group.value)) {
-                fail = true
-                $('#group').addClass('wrong')
-            } else {
-                $('#group').removeClass('wrong')
-            }
-
-
-            const phoneRegEx = /^[(]\d{3}[)][-]\d{3}[-]\d{2}[-]\d{2}$/g;
-            if (!phoneRegEx.test(data.tel.value)) {
-                fail = true
-                $('#tel').addClass('wrong')
-            } else {
-                $('#tel').removeClass('wrong')
-            }
-
-
-            const idRegEx = /^[a-zA-Z]{2}\s[№]\d{6}$/g;
+            const idRegEx = /^[a-zA-Z]{2}\s[№]\d{6}$/
             if (!idRegEx.test(data.id.value)) {
                 fail = true
                 $('#id').addClass('wrong')
@@ -55,13 +37,31 @@
             }
 
 
-            const facultyRegEx = /^[a-zA-Z]{4}$/g;
+            const facultyRegEx = /^[a-zA-Z]{4}$/
             if (!facultyRegEx.test(data.faculty.value)) {
                 fail = true
                 $('#faculty').addClass('wrong')
             } else {
                 $('#faculty').removeClass('wrong')
             }
+
+            const birthdayRegEx = /^\d\d.\d\d.\d\d\d\d$/
+            if (!birthdayRegEx.test(data.birthday.value)) {
+                fail = true
+                $('#birthday').addClass('wrong')
+            } else {
+                $('#birthday').removeClass('wrong')
+            }
+
+
+            const addressRegEx = /^t[.]\s*[a-zA-Z]{1,7}$/
+            if (!addressRegEx.test(data.address.value)) {
+                fail = true
+                $('#address').addClass('wrong')
+            } else {
+                $('#address').removeClass('wrong')
+            }
+
 
             return !fail;
         }
@@ -70,30 +70,33 @@
 <body>
 <div class="container">
     <form id="popupForm" action="process-form.html" target="print_popup" method="get">
-        <h3>Laboratory Work 5</h3>
+        <h3>Laboratory Work 2</h3>
         <fieldset>
             <label for="name">Your Full Name</label><input placeholder="XXXXXX X.X." name="name" id="name" type="text"
                                                            tabindex="1"
                                                            required autofocus>
         </fieldset>
         <fieldset>
-            <label for="group">Your Group</label><input placeholder="XX-**" name="group" id="group" type="text"
-                                                        tabindex="2"
-                                                        required>
-        </fieldset>
-        <fieldset>
-            <label for="tel">Your Phone Number</label><input placeholder="(***)-***-**-**" name="tel" id="tel"
-                                                             type="text" tabindex="3"
-                                                             required>
-        </fieldset>
-        <fieldset>
-            <label for="id">Your ID</label><input placeholder="XX №******" name="id" id="id" type="text" tabindex="4"
+            <label for="id">Your ID</label><input placeholder="XX №******" name="id" id="id" type="text" tabindex="2"
                                                   required>
         </fieldset>
         <fieldset>
             <label for="faculty">Your Faculty</label><input placeholder="XXXX" name="faculty" id="faculty" type="text"
-                                                            tabindex="5" required>
+                                                            tabindex="3" required>
         </fieldset>
+        <fieldset>
+            <label for="birthday">Your Birthday Date</label><input placeholder="DD.MM.YYYY" name="birthday"
+                                                                   id="birthday" type="text"
+                                                                   tabindex="4"
+                                                                   required>
+        </fieldset>
+        <fieldset>
+            <label for="address">Your Home Address</label><input placeholder="t. XXXXXXX" name="address" id="address"
+                                                                 type="text" tabindex="5"
+                                                                 required>
+        </fieldset>
+
+
         <fieldset>
             <button name="submit" type="submit" id="submit-button" data-submit="...Sending">Submit
             </button>

@@ -16,7 +16,7 @@
             font-weight: bold;
         }
 
-        #info p span{
+        #info p span {
             font-weight: normal;
             margin: 10px;
         }
@@ -26,10 +26,10 @@
     <script>
         $(document).ready(function () {
             $('#name').text(getParameter('name'))
-            $('#group').text(getParameter('group'))
-            $('#tel').text(getParameter('tel'))
             $('#id').text(getParameter('id'))
             $('#faculty').text(getParameter('faculty'))
+            $('#birthday').text(getParameter('birthday'))
+            $('#address').text(getParameter('address'))
         })
 
         getParameter = (key) => {
@@ -52,10 +52,10 @@
 
 <div id="info">
     <p>Full Name: <span id="name"></span></p>
-    <p>Group: <span id="group"></span></p>
-    <p>Phone: <span id="tel"></span></p>
     <p>ID: <span id="id"></span></p>
     <p>Faculty: <span id="faculty"></span></p>
+    <p>Birthday date: <span id="birthday"></span></p>
+    <p>Address: <span id="address"></span></p>
 </div>
 </body>
 </html>
